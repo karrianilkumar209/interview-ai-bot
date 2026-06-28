@@ -1,11 +1,16 @@
 import axios from "axios";
 
-const API_BASE_URL =
-  import.meta.env.VITE_API_URL ||
-  "http://localhost:8000/api/v1";
+function normalizeApiBaseUrl(url: string): string {
+  const cleaned = url.trim().replace(/\/+$/, "");
+  if (cleaned.endsWith("/api/v1")) return cleaned;
+  return `${cleaned}/api/v1`;
+}
+
+const RAW_API_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 const api = axios.create({
-  baseURL: API_BASE_URL,
+  baseURL: normalizeApiBaseUrl(RAW_API_URL),
   timeout: 30000,
 });
 
