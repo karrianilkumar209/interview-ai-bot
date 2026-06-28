@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+interviewpilot.db
+.env
+node_modules/
+dist/
+frontend/tsconfig*.tsbuildinfo
+frontend/vite.config.js
+frontend/vite.config.d.ts
+*.sqlite
+*.sqlite3
+.DS_Store
